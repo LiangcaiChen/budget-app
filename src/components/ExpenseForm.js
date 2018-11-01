@@ -27,14 +27,17 @@ export default class ExpenseForm extends Component {
         const amount = e.target.value;
 
         // Using regular expression
-        if(amount.match(/^\d*(\.\d{0,2})?$/)) {
+        if(!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
             this.setState(()=>({ amount }));
         }
 
     };
 
     onDateChange = (createdAt) => {
-        this.setState(()=>({createdAt}));
+        if(createdAt) {
+            this.setState(()=>({createdAt}));
+        }
+
     };
 
     onFocusChange = ({focused}) => {
@@ -46,13 +49,13 @@ export default class ExpenseForm extends Component {
             <form>
                 <input
                     type="text"
-                    placeholder="description"
+                    placeholder="Description"
                     value={this.state.description}
                     onChange={this.onDescriptionChange}
                 />
                 <input
                     type="text"
-                    placeholder="amount"
+                    placeholder="Amount"
                     value={this.state.amount}
                     onChange={this.onAmountChange}
                 />
