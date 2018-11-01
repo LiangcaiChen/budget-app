@@ -1,20 +1,23 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ExpenseForm from './ExpenseForm';
+import {addExpense} from '../actions/expenses';
 
 class AddExpensePage extends Component {
     render() {
         return (
             <div>
                 <h1>Add Expense</h1>
-                <ExpenseForm />
+                <ExpenseForm
+                    onSubmit={(expense)=>{
+                        this.props.dispatch(addExpense(expense));
+                        this.props.history.push('/');
+                    }}
+
+                />
             </div>
         )
     }
 }
 
-const mapStateToMap = (state) => ({
-    expenses: state.expenses
-});
-
-export default connect(mapStateToMap)(AddExpensePage);
+export default connect()(AddExpensePage);

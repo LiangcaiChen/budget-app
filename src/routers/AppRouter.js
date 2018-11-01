@@ -7,8 +7,6 @@ import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
 
-
-
 const AppRouter = () => (
     <BrowserRouter>
         <div>
