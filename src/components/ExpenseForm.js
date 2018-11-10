@@ -18,9 +18,6 @@ export default class ExpenseForm extends Component {
         };
     }
 
-
-
-
     onDescriptionChange = (e) => {
         const description = e.target.value;
         this.setState(()=>({ description }));
@@ -70,7 +67,7 @@ export default class ExpenseForm extends Component {
     render() {
         return (
             <div>
-                {this.state.error && <p>this.state.error</p>}
+                {this.state.error && <p>{this.state.error}</p>}
                 <form onSubmit={this.onSubmit}>
                     <input
                         type="text"
