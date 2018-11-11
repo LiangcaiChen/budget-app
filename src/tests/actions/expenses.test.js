@@ -27,20 +27,18 @@ test('should setup add expense action object', ()=> {
     })
 });
 
-test('should add expense action by default', ()=> {
-
+test('should setup add expense action by default', ()=> {
+    expect(addExpense()).toEqual({
+        type:"ADD_EXPENSE",
+        expense: {
+            description: "",
+            note: "",
+            amount: 0,
+            createdAt: 0,
+            id: expect.any(String)
+        }
+    })
 });
-
-// export const addExpense = ({ description = '', note='', amount=0, createdAt=0 } = {}) => ({
-//     type: 'ADD_EXPENSE',
-//     expense: {
-//         id: uuid4(),
-//         description,
-//         note,
-//         amount,
-//         createdAt
-//     }
-// });
 
 test('should setup edit expense action object', () => {
     const action = editExpense(4, {description:"hot tea"});
@@ -50,5 +48,12 @@ test('should setup edit expense action object', () => {
         updates: {description:"hot tea"}
     });
 });
+
+// toBe example:
+// const add = (a,b) => a + b;
+//
+// test('should add two numbers', () => {
+//     expect(add(3,4)).toBe(7);
+// });
 
 
