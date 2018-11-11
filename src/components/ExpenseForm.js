@@ -41,7 +41,6 @@ export default class ExpenseForm extends Component {
         if(createdAt) {
             this.setState(()=>({createdAt}));
         }
-
     };
 
     onFocusChange = ({focused}) => {
